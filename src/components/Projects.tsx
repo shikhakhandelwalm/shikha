@@ -68,7 +68,7 @@ export default function Projects() {
   const selectedProject = projects.find(p => p.id === selectedId);
 
   return (
-    <section className="relative w-full bg-[#121212] py-32 px-4 md:px-12 z-20 overflow-hidden snap-start">
+    <section className="relative w-full bg-[#121212] py-32 px-4 md:px-12 z-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-black text-white mb-16 tracking-tight">
           Work Experience
