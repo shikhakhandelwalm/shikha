@@ -47,7 +47,7 @@ export default function ResumeSections() {
   return (
     <div className="w-full bg-[#121212] flex flex-col items-center">
       {/* Certifications Section */}
-      <section className="relative w-full pb-24 px-4 md:px-12 z-20">
+      <section className="relative w-full pb-24 px-4 md:px-12 z-20 snap-start">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-black text-white mb-16 tracking-tight">
             Certifications
@@ -74,7 +74,7 @@ export default function ResumeSections() {
       </section>
 
       {/* Education Section */}
-      <section className="relative w-full py-24 px-4 md:px-12 z-20 bg-white/[0.02]">
+      <section className="relative w-full py-24 px-4 md:px-12 z-20 bg-white/[0.02] snap-start">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-black text-white mb-16 tracking-tight">
             Education
