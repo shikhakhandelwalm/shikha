@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
 const FRAME_COUNT = 120; // 0 to 119
@@ -8,46 +8,24 @@ const FRAME_COUNT = 120; // 0 to 119
 export default function ScrollyCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
-  // Preload images
-  useEffect(() => {
-    let loadedImgs: HTMLImageElement[] = [];
-    for (let i = 0; i < FRAME_COUNT; i++) {
-      const img = new Image();
-      // Format number to 3 digits (e.g., 000, 001)
-      const frameNum = i.toString().padStart(3, "0");
-      img.src = `/sequence/frame_${frameNum}_delay-0.066s.png`;
-      loadedImgs.push(img);
-    }
-    setImages(loadedImgs);
-  }, []);
-
-  // Update canvas on scroll
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (!canvasRef.current || images.length === 0) return;
-    
-    // Calculate current frame index based on scroll progress
-    let frameIndex = Math.floor(latest * (FRAME_COUNT - 1));
-    if (frameIndex < 0) frameIndex = 0;
-    if (frameIndex >= FRAME_COUNT) frameIndex = FRAME_COUNT - 1;
-    
+  const drawFrame = (index: number) => {
+    if (!canvasRef.current || imagesRef.current.length === 0) return;
     const context = canvasRef.current.getContext("2d");
     if (!context) return;
-    const img = images[frameIndex];
     
+    const img = imagesRef.current[index];
     if (img && img.complete) {
-      // object-fit: cover logic mapped with a zoom factor to hide watermark
       const canvas = canvasRef.current;
       const hRatio = canvas.width / img.width;
       const vRatio = canvas.height / img.height;
       
-      // Multiply by 1.15 to slightly scale up and crop the 'Veo' watermark at the edges
       const zoomFactor = 1.15; 
       const ratio = Math.max(hRatio, vRatio) * zoomFactor;
       
@@ -61,30 +39,64 @@ export default function ScrollyCanvas() {
         centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
       );
     }
+  };
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    let frameIndex = Math.floor(latest * (FRAME_COUNT - 1));
+    if (frameIndex < 0) frameIndex = 0;
+    if (frameIndex >= FRAME_COUNT) frameIndex = FRAME_COUNT - 1;
+    drawFrame(frameIndex);
   });
 
-  // Handle Resize and initial draw
   useEffect(() => {
+    // Check if we are in browser
+    if (typeof window === "undefined") return;
+
+    // Load images quickly 
+    const loadedImgs: HTMLImageElement[] = [];
+    for (let i = 0; i < FRAME_COUNT; i++) {
+        const img = new Image();
+        const frameNum = i.toString().padStart(3, "0");
+        img.src = `/sequence/frame_${frameNum}_delay-0.066s.png`;
+        
+        // If it's the very first image, force an immediate render the millisecond it loads to prevent black flash
+        if (i === 0) {
+            img.onload = () => {
+              // Ensure canvas sizing is correct just in case resize hasn't fired yet
+              if (canvasRef.current && canvasRef.current.width === 0) {
+                 canvasRef.current.width = window.innerWidth * window.devicePixelRatio;
+                 canvasRef.current.height = window.innerHeight * window.devicePixelRatio;
+              }
+              // Force draw frame 0
+              requestAnimationFrame(() => drawFrame(0));
+            };
+        }
+        loadedImgs.push(img);
+    }
+    imagesRef.current = loadedImgs;
+
+    // Handle high DPI resizing
     const handleResize = () => {
-      if (canvasRef.current && images.length > 0) {
-        // High DPI canvas trick: match physical pixels, do NOT scale the context, drawing uses physical pixels.
+      if (canvasRef.current) {
         canvasRef.current.width = window.innerWidth * window.devicePixelRatio;
         canvasRef.current.height = window.innerHeight * window.devicePixelRatio;
-        // Keep CSS same as window
         canvasRef.current.style.width = window.innerWidth + 'px';
         canvasRef.current.style.height = window.innerHeight + 'px';
         
-        // Force a re-draw for the current scroll position
-        window.dispatchEvent(new Event('scroll'));
+        // Redraw current frame
+        let frameIndex = Math.floor(scrollYProgress.get() * (FRAME_COUNT - 1));
+        if (frameIndex < 0) frameIndex = 0;
+        requestAnimationFrame(() => drawFrame(frameIndex));
       }
     };
     
     window.addEventListener("resize", handleResize);
-    // Timeout to allow initial layout pass before setting the width/height sizes
-    requestAnimationFrame(handleResize);
     
+    // Initial size setup
+    handleResize();
+
     return () => window.removeEventListener("resize", handleResize);
-  }, [images]);
+  }, []);
 
   return (
     <div ref={containerRef} className="relative w-full h-[500vh] bg-[#121212]">
