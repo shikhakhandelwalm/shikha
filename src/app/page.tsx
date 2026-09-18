@@ -2,6 +2,7 @@ import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Overlay from "@/components/Overlay";
 import Projects from "@/components/Projects";
 import ResumeSections from "@/components/ResumeSections";
+import ProductLab from "@/components/ProductLab";
 import ContactWidget from "@/components/ContactWidget";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Overlay />
       </div>
       <Projects />
+      <ProductLab />
       <ResumeSections />
       <ContactWidget />
     </main>
