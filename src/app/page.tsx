@@ -1,21 +1,5 @@
-import ScrollyCanvas from "@/components/ScrollyCanvas";
-import Overlay from "@/components/Overlay";
-import Projects from "@/components/Projects";
-import ResumeSections from "@/components/ResumeSections";
-import ProductLab from "@/components/ProductLab";
-import ContactWidget from "@/components/ContactWidget";
+import PortfolioV2 from "@/components/PortfolioV2";
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-[#121212] flex flex-col w-full relative">
-      <div className="relative w-full">
-        <ScrollyCanvas />
-        <Overlay />
-      </div>
-      <Projects />
-      <ProductLab />
-      <ResumeSections />
-      <ContactWidget />
-    </main>
-  );
+  return <PortfolioV2 />;
 }
