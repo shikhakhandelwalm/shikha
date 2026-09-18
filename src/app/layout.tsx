@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Shikha Khandelwal | Sr. Product Manager",
-  description: "Portfolio of Shikha Khandelwal - Sr. Product Manager",
+  title: "Shikha Khandelwal | Senior Product Manager · AI & Enterprise Transformation",
+  description: "Senior Product Manager portfolio spanning AI, automation, enterprise transformation, People Systems, responsible governance, roadmaps and measurable product adoption.",
 };
 
 export default function RootLayout({
