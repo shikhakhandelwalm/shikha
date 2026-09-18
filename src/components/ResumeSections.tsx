@@ -13,14 +13,7 @@ export default function ResumeSections() {
     },
     {
       id: "cert-2",
-      name: "Certified ScrumMaster (CSM)",
-      category: "Certification",
-      gradient: "from-emerald-500 to-teal-400",
-      svg: "M13 10V3L4 14h7v7l9-11h-7z"
-    },
-    {
-      id: "cert-3",
-      name: "Project Management Professional (PMP)",
+      name: "Lean Six Sigma Green Belt",
       category: "Certification",
       gradient: "from-emerald-500 to-teal-400",
       svg: "M13 10V3L4 14h7v7l9-11h-7z"
