@@ -72,7 +72,7 @@ export default function Overlay() {
             Shikha Khandelwal
           </h1>
           <p className="mt-2 sm:mt-4 text-lg sm:text-xl md:text-2xl font-light text-neutral-300 drop-shadow-md lg:mix-blend-difference">
-            Sr. Product Manager (Startup Mindset)
+            Senior Product Manager · AI, Automation & Enterprise Transformation
           </p>
         </motion.div>
 
@@ -90,7 +90,7 @@ export default function Overlay() {
             Core Expertise
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 max-w-5xl mx-auto">
-            {["Product Strategy & Roadmapping", "Agile Leadership (CSM/CSPO)", "AI & LLM Implementations", "Data-Driven Analytics", "Digital Transformation", "End-to-End Delivery"].map(skill => (
+            {["Product Strategy & Multi-Year Roadmaps", "AI & Automation Leadership", "Enterprise Platforms & People Systems", "Responsible AI & Governance", "Data & Product Analytics", "Adoption & Change Leadership"].map(skill => (
               <div key={skill} className="text-white text-lg sm:text-2xl md:text-3xl font-medium tracking-tight lg:mix-blend-difference drop-shadow-xl">
                 {skill}
               </div>
@@ -112,19 +112,19 @@ export default function Overlay() {
             <ul className="space-y-6 md:space-y-8 text-xl sm:text-2xl md:text-4xl font-bold text-neutral-200 leading-tight drop-shadow-xl lg:mix-blend-difference text-left tracking-tight">
               <li className="flex items-start">
                 <span className="text-blue-500 mr-4 md:mr-6 flex-shrink-0 mt-1 sm:mt-0">•</span>
-                <span>Passionate about building from the <span className="text-white underline decoration-blue-500">ground up</span>.</span>
+                <span>Owns product strategy and <span className="text-white underline decoration-blue-500">multi-year roadmaps</span> across AI, enterprise platforms, People Systems and digital transformation.</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-500 mr-4 md:mr-6 flex-shrink-0 mt-1 sm:mt-0">•</span>
-                <span>Accelerating growth up to <span className="text-white underline decoration-blue-500">10x</span> and resolving technical challenges to scale lasting impact.</span>
+                <span>Reduced manual effort by <span className="text-white underline decoration-blue-500">40%</span> and improved engagement by <span className="text-white">30%</span> through workflow redesign, automation and adoption.</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-500 mr-4 md:mr-6 flex-shrink-0 mt-1 sm:mt-0">•</span>
-                <span>Scaling GTM strategies for <span className="text-white">7M+ users</span> while dropping churn by <span className="text-white">57%</span>.</span>
+                <span>Led digital products serving <span className="text-white">7M users</span> and increased adoption from <span className="text-white">12% to 45%</span>.</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-500 mr-4 md:mr-6 flex-shrink-0 mt-1 sm:mt-0">•</span>
-                <span>Optimizing agile workflows to decrease cycle delivery times by <span className="text-white">50%</span>.</span>
+                <span>Led Microsoft 365 Copilot enablement, AI-agent discovery and responsible-AI governance from pilot through enterprise adoption.</span>
               </li>
             </ul>
           </div>

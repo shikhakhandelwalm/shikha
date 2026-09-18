@@ -21,47 +21,61 @@ export default function Projects() {
     {
       id: 1,
       name: "Langara College",
-      category: "Sr. Product Manager",
-      date: "2023 - Present",
-      description: "Implemented an AI-powered chatbot, reducing churn by 57% and boosting NPS.",
+      category: "Senior Product Manager · People Systems, Workday HCM & AI Automation",
+      date: "2023 - 2025",
+      description: "Owned People Systems, Workday HCM and AI/automation initiatives with P&C, reducing manual effort by 40% and improving engagement by 30%.",
       details: [
-        "Conducted market research and customer interviews leading to power apps implementation across 7 departments.",
-        "Delivered an AI-powered chatbot with high empathy, increasing NPS score from 6 to 8.",
-        "Led customer-facing teams reducing churn rate by 57% via closed feedback loops.",
-        "Operationalized processes for a 30% reduction in development cycle times and 20% increase in on-time launches.",
-        "Championed continuous process improvement initiatives, leading to a 15% team productivity spike."
+        "Owned product direction, roadmap, backlog and delivery for People Systems and HR technology initiatives across payroll, onboarding/offboarding, talent and skills, and employee self-service.",
+        "Led recurring discovery and office-hours sessions across P&C, Workday, EdTech, IT and administrative teams to identify high-volume manual work, knowledge gaps and approval bottlenecks and turn them into prioritized AI/automation opportunities.",
+        "Led Microsoft 365 Copilot enablement from an IT super-user pilot to broader administrative adoption, partnering with Microsoft consultants on architecture, governance, licensing, security review, training and prompt guidance.",
+        "Delivered Power Apps, Power Automate, Power Virtual Agents and SharePoint knowledge-agent solutions for onboarding, self-service, HR requests, payroll exceptions and multi-level approvals while keeping Workday as the system of record.",
+        "Established Power Platform and AI governance covering DLP, privacy/security assessment, data classification, access controls, ownership boundaries, RACI, data governance and human oversight.",
+        "Reduced manual effort by 40% and improved engagement by 30% through workflow redesign, automation and structured adoption measurement."
       ],
       image: "/projects/langara-ai.png"
     },
     {
       id: 2,
-      name: "Telus Digital",
-      category: "Technical Product Manager",
-      date: "2021 - 2023",
-      description: "Engineered robust GTM strategies launching a 2FA ecosystem for 7M users.",
+      name: "TELUS Digital",
+      category: "Senior Product Manager · Digital Transformation & Adoption",
+      date: "2022 - 2023",
+      description: "Led digital identity and customer-experience products serving 7M users, increasing adoption from 12% to 45%.",
       details: [
-        "Developed comprehensive Go-To-Market strategy for the 2FA Launch serving 7M Users.",
-        "Boosted customer base penetration by 11% with Eversafe Branding among 100K+ users.",
-        "Managed entire product lifecycle yielding a 15% revenue increase in the first year.",
-        "Instituted Agile best practices decreasing overall development cycle time by 50%.",
-        "Identified new target segments via deep market analysis resulting in 30% user base growth."
+        "Owned product direction for identity, authentication and digital-experience capabilities serving 7M users.",
+        "Used journey analytics, support themes, experimentation and operational signals to identify friction and prioritize roadmap improvements.",
+        "Partnered across Engineering, Analytics, Design, Marketing, Operations and Security on requirements, rollout, adoption and post-launch measurement.",
+        "Balanced usability, privacy, security, scalability and operational reliability in a trust-sensitive product environment.",
+        "Increased adoption from 12% to 45% through evidence-led product changes and structured rollout and adoption planning."
       ],
       image: "/projects/telus-pm.png"
     },
     {
       id: 3,
       name: "Tata Consultancy Services",
-      category: "Sr. Product Manager",
-      date: "2018 - 2021",
-      description: "Delivered enterprise digital transformations and managed end-to-end mass production.",
+      category: "Product Manager · Enterprise Platforms & Transformation",
+      date: "2021 - 2022",
+      description: "Led enterprise platform and workflow transformation in regulated financial services, connecting business needs to roadmaps, delivery and automation.",
       details: [
-        "Spearheaded Pre-sales initiatives successfully acquiring 2 large-scale clients.",
-        "Directed Delivery, Stakeholder, Risk, and Conflict Management paired with expansive budgeting.",
-        "Conceptualized and successfully deployed enhanced product features optimizing marketing strategies.",
-        "Boosted customer penetration by 11% through tailored creative promotional approaches.",
-        "Led cross-functional SCRUM environments ensuring strict sprint deliveries and accurate estimations."
+        "Translated business needs into roadmaps, requirements, user stories, acceptance criteria, testing and release plans across enterprise platform initiatives.",
+        "Used operational data and Power BI to identify manual work, process gaps and automation opportunities.",
+        "Coordinated dependencies across business, technology and operations teams in complex regulated environments.",
+        "Built on earlier TCS experience across retail, healthcare, life sciences and SaaS, including master-data work for Macy's and Marks & Spencer."
       ],
       image: "/projects/tcs-pm.png"
+    },
+    {
+      id: 4,
+      name: "Aon Hewitt",
+      category: "Test Lead · HRIS / Canadian Defined Benefits",
+      date: "2010 - 2011",
+      description: "Led end-to-end QA for Flex Systems, building early domain depth in HRIS, employee benefits and sensitive people data.",
+      details: [
+        "Led end-to-end QA for Flex Systems supporting Canadian Defined Benefits programs for enterprise clients.",
+        "Worked closely with Business Analysts to translate client-specific plan provisions into test scenarios and expected outcomes.",
+        "Validated benefit calculations, employee eligibility, demographic/pay inputs and plan rules through system, integration and regression testing.",
+        "Led defect triage and QA execution, strengthening experience in the accuracy, control and privacy expectations of HR technology."
+      ],
+      image: "/projects/project1.png"
     }
   ];
 
