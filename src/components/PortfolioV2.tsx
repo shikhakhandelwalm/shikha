@@ -483,7 +483,7 @@ export default function PortfolioV2() {
                   Email me
                 </a>
                 <a
-                  href="https://linkedin.com/in/shikhakhandelwal"
+                  href="https://www.linkedin.com/in/shikhakhandelwalm"
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white"
