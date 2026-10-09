@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import HalfPurpleWaitlistModal from "@/components/HalfPurpleWaitlistModal";
 
@@ -182,6 +182,18 @@ function ProductVisual({ type }: { type: string }) {
 
 export default function PortfolioV2() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
+
+  // Shareable LinkedIn URL: /#halfpurple-waitlist opens the existing popup.
+  useEffect(() => {
+    const openFromLink = () => {
+      if (window.location.hash.toLowerCase() === "#halfpurple-waitlist") {
+        setWaitlistOpen(true);
+      }
+    };
+    openFromLink();
+    window.addEventListener("hashchange", openFromLink);
+    return () => window.removeEventListener("hashchange", openFromLink);
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#F5F2EA] text-[#1F1F1C]">
