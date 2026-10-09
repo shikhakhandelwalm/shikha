@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import HalfPurpleWaitlistModal from "@/components/HalfPurpleWaitlistModal";
 
 const products = [
   {
@@ -179,6 +181,8 @@ function ProductVisual({ type }: { type: string }) {
 }
 
 export default function PortfolioV2() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-[#F5F2EA] text-[#1F1F1C]">
       <header className="sticky top-0 z-50 border-b border-black/5 bg-[#F5F2EA]/90 backdrop-blur-xl">
@@ -287,7 +291,17 @@ export default function PortfolioV2() {
                         </span>
                       ))}
                     </div>
-                    <p className="mt-6 text-sm font-semibold">Case study in progress →</p>
+                    {product.id === "half-purple" ? (
+                      <button
+                        type="button"
+                        onClick={() => setWaitlistOpen(true)}
+                        className="mt-6 inline-flex items-center rounded-full bg-[#7C6FE8] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(124,111,232,0.25)] transition hover:-translate-y-0.5 hover:bg-[#6E60DF] focus:outline-none focus:ring-2 focus:ring-[#7C6FE8] focus:ring-offset-2"
+                      >
+                        Join the HalfPurple waitlist →
+                      </button>
+                    ) : (
+                      <p className="mt-6 text-sm font-semibold">Case study in progress →</p>
+                    )}
                   </div>
                 </div>
                 <div className="p-4 md:p-6" style={{ background: product.tint }}>
@@ -499,6 +513,8 @@ export default function PortfolioV2() {
           </div>
         </div>
       </footer>
+
+      <HalfPurpleWaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </main>
   );
 }
