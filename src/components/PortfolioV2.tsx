@@ -186,7 +186,7 @@ export default function PortfolioV2() {
   // Shareable LinkedIn URL: /#halfpurple-waitlist opens the existing popup.
   useEffect(() => {
     const openFromLink = () => {
-      if (window.location.hash.toLowerCase() === "#halfpurple-waitlist") {
+      if (window.location.pathname.replace(/\/$/, "").toLowerCase() === "/halfpurple" || window.location.hash.toLowerCase() === "#halfpurple-waitlist") {
         setWaitlistOpen(true);
       }
     };
