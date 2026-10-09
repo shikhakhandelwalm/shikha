@@ -96,7 +96,7 @@ export default function HalfPurpleWaitlistModal({ open, onClose }: Props) {
                   Congratulations—you’re on the HalfPurple early beta list. 💜
                 </h2>
                 <p className="mt-5 text-base leading-7 text-[#625B6B]">
-                  We’ll email you when access is ready. You’ll be able to explore the app, try the early experience and report anything that feels unclear, broken or missing.
+                  Early access begins Friday, October 16, 2026, at 12:00 p.m. Pacific. We’ll email you with access details. You’ll be able to explore the app, try the early experience and report anything that feels unclear, broken or missing.
                 </p>
                 <p className="mt-5 font-semibold text-[#3D3547]">Your feedback will help shape HalfPurple.</p>
               </div>
