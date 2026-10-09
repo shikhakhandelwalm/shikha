@@ -92,7 +92,10 @@ async function sendWithGmail({
   socket.setTimeout(12_000);
 
   let buffer = "";
-  const waiters: Array<(response: string) => void> = [];
+  const waiters: Array<{
+    resolve: (response: string) => void;
+    reject: (error: Error) => void;
+  }> = [];
 
   socket.on("data", (chunk: string) => {
     buffer += chunk;
@@ -100,16 +103,30 @@ async function sendWithGmail({
     buffer = lines.pop() ?? "";
 
     for (const line of lines) {
-      if (/^\d{3} /.test(line)) waiters.shift()?.(line);
+      if (/^\d{3} /.test(line)) waiters.shift()?.resolve(line);
     }
+  });
+
+  socket.on("error", (error) => {
+    waiters.shift()?.reject(error);
+  });
+
+  socket.on("timeout", () => {
+    socket.destroy(new Error("Gmail SMTP connection timed out"));
   });
 
   const response = () =>
     new Promise<string>((resolve, reject) => {
       const timeout = setTimeout(() => reject(new Error("Gmail SMTP timed out")), 12_000);
-      waiters.push((line) => {
-        clearTimeout(timeout);
-        resolve(line);
+      waiters.push({
+        resolve: (line) => {
+          clearTimeout(timeout);
+          resolve(line);
+        },
+        reject: (error) => {
+          clearTimeout(timeout);
+          reject(error);
+        },
       });
     });
 
@@ -199,7 +216,11 @@ export async function POST(request: Request) {
     });
 
     return Response.json({ ok: true });
-  } catch {
+  } catch (error) {
+    console.error(
+      "HalfPurple waitlist delivery failed:",
+      error instanceof Error ? error.message : "Unknown email delivery error",
+    );
     return Response.json({ ok: false }, { status: 500 });
   }
 }
