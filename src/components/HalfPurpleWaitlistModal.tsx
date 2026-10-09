@@ -93,7 +93,7 @@ export default function HalfPurpleWaitlistModal({ open, onClose }: Props) {
                 <div className="grid h-14 w-14 place-items-center rounded-full bg-[#7C6FE8] text-2xl font-bold text-white">✓</div>
                 <p className="mt-7 text-xs font-bold uppercase tracking-[0.2em] text-[#7C6FE8]">Welcome, early tester</p>
                 <h2 id="halfpurple-waitlist-title" className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.035em] md:text-4xl">
-                  Congratulations—you’re on the HalfPurple early beta list. 💜
+                  You’re on the HalfPurple early access list. 💜
                 </h2>
                 <p className="mt-5 text-base leading-7 text-[#625B6B]">
                   Early access begins Friday, October 16, 2026, at 12:00 p.m. Pacific. We’ll email you with access details. You’ll be able to explore the app, try the early experience and report anything that feels unclear, broken or missing.
@@ -106,12 +106,12 @@ export default function HalfPurpleWaitlistModal({ open, onClose }: Props) {
                   <span className="h-9 w-9 rounded-full bg-[linear-gradient(90deg,#FFFFFF_50%,#7C6FE8_50%)] shadow-md" />
                   <span className="font-bold">HalfPurple</span>
                 </div>
-                <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#7C6FE8]">Private launch waitlist</p>
+                <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#7C6FE8]">HalfPurple early access</p>
                 <h2 id="halfpurple-waitlist-title" className="mt-3 text-4xl font-semibold leading-[1.05] tracking-[-0.045em]">
                   Be among the first to experience HalfPurple.
                 </h2>
                 <p className="mt-5 text-base leading-7 text-[#625B6B]">
-                  Join the early beta, explore the first experience and help shape a warmer kind of everyday epilepsy support.
+                  Join the waitlist to explore HalfPurple and help shape a warmer kind of everyday epilepsy support.
                 </p>
 
                 <form onSubmit={joinWaitlist} className="mt-7">
