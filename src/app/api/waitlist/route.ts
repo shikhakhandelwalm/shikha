@@ -190,23 +190,23 @@ export async function POST(request: Request) {
       gmailAppPassword,
       to: gmailUser,
       replyTo: email,
-      subject: "New HalfPurple early-beta signup",
-      text: `${email} joined the HalfPurple early-beta waitlist.`,
-      html: `<p><strong>${safeEmail}</strong> joined the HalfPurple early-beta waitlist.</p>`,
+      subject: "New HalfPurple waitlist signup",
+      text: `${email} joined the HalfPurple early access waitlist.`,
+      html: `<p><strong>${safeEmail}</strong> joined the HalfPurple early access waitlist.</p>`,
     });
 
     await sendWithGmail({
       gmailUser,
       gmailAppPassword,
       to: email,
-      subject: "You’re on the HalfPurple early-beta list 💜",
+      subject: "You’re on the HalfPurple early access list 💜",
       text:
-        "Congratulations—you’re on the HalfPurple early-beta list. Early access begins Friday, October 16, 2026, at 12:00 p.m. Pacific. We’ll email you with access details. You’ll be able to explore the app, try the early experience and report anything that feels unclear, broken or missing. Your feedback will help shape HalfPurple.",
+        "You’re on the HalfPurple early access list. Early access begins Friday, October 16, 2026, at 12:00 p.m. Pacific. We’ll email you with access details. You’ll be able to explore the app, try the early experience and report anything that feels unclear, broken or missing. Your feedback will help shape HalfPurple.",
       html: `
         <div style="margin:0;background:#f2ecff;padding:32px 16px;font-family:Arial,sans-serif;color:#292231">
           <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:24px;padding:32px;border:1px solid #ded3f5">
             <div style="font-size:14px;font-weight:700;color:#7c6fe8">HALFPURPLE</div>
-            <h1 style="font-size:28px;line-height:1.2;margin:20px 0 16px">You’re on the early-beta list 💜</h1>
+            <h1 style="font-size:28px;line-height:1.2;margin:20px 0 16px">You’re on the early access list 💜</h1>
             <p style="font-size:16px;line-height:1.65;color:#655d6d">Early access begins Friday, October 16, 2026, at 12:00 p.m. Pacific. We’ll email you with access details. You’ll be able to explore the app, try the early experience and report anything that feels unclear, broken or missing.</p>
             <p style="font-size:16px;line-height:1.65;font-weight:700;color:#40354d">Your feedback will help shape HalfPurple.</p>
             <div style="margin-top:28px;padding-top:20px;border-top:1px solid #ece7f2;font-size:14px;color:#7c7185">I’m here for you.</div>
